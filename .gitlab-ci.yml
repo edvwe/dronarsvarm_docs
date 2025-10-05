@@ -1,0 +1,44 @@
+default:
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - scheduler_failure
+      - stale_schedule
+      - stuck_or_timeout_failure
+
+variables:
+  JEKYLL_ENV: production
+  LC_ALL: C.UTF-8
+  PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+  PIPENV_CACHE_DIR: $CI_PROJECT_DIR/.cache/pipenv
+  RUBY_CACHE: vendor/ruby
+
+site:
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "pages"
+  image: jekyll/jekyll
+  stage: build
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-site
+    paths:
+      - ${RUBY_CACHE}
+  before_script:
+    - gem install bundler
+    - bundle config set --local path "${RUBY_CACHE}"
+    - bundle install -j $(nproc)
+  script:
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+
+pages:
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "pages"
+  stage: deploy
+  script:
+    - find public -type f -print0 | xargs -0 gzip -k -6
+  artifacts:
+    paths:
+      - public
