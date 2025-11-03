@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Startsida
+permalink: /
 ---
 
-# Här är startsidan
-Här står det nått tydligen
+# Personarna bakom
+Adam Mejri, Edvard Wetind, Isac Widendahl, Linus Gustafsson, Oskar Haapaniemi, Oskar Herling och William Olsson.
