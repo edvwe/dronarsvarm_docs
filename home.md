@@ -5,4 +5,10 @@ permalink: /
 ---
 
 # Personarna bakom
-Adam Mejri, Edvard Wetind, Isac Widendahl, Linus Gustafsson, Oskar Haapaniemi, Oskar Herling och William Olsson.
+- Adam Mejri
+- Edvard Wetind
+- Isac Widendahl
+- Linus Gustafsson
+- Oskar Haapaniemi
+- Oskar Herling
+- William Olsson
