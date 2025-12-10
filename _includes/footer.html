@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <p class="footer-text">
+      Contact: <a href="mailto:dronarsvarm.visionen-users@liuonline.onmicrosoft.com">
+      </a>dronarsvarm.visionen-users@liuonline.onmicrosoft.com
+    </p>
+
+    <nav class="footer-nav">
+      <ul>
+        {% if site.footer_pages %}
+          {% for page in site.footer_pages %}
+            <li><a href="{{ page | relative_url }}">{{ page | capitalize }}</a></li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</footer>

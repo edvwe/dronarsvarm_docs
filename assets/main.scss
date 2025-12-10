@@ -1,0 +1,176 @@
+---
+---
+@import "minima";
+
+/* ---------------------------------------
+   GENERAL STYLES
+---------------------------------------- */
+:root {
+  --primary-color: #202020;       /* your main dark color */
+  --secondary-color: #e7cf92;     /* e.g., for text */
+  --accent-color: #ff6600;        /* e.g., hover highlights */
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #252525;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #252525;
+}
+
+/* ---------------------------------------
+   DEFAULT HEADER (APPLIES TO ALL PAGES)
+   → Solid header ALWAYS, unless homepage overrides it
+---------------------------------------- */
+.site-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+  background-color: #202020; /* Solid default */
+  color: var(--secondary-color);
+  border-bottom: none !important;
+  box-shadow: none !important;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.site-header a {
+  position: relative;
+  color: var(--secondary-color) !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  display: inline-block;
+}
+
+/* UNIVERSAL UNDERLINE EFFECT */
+.site-header a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* adjust underline distance */
+  width: 100%;
+  height: 4px;
+  background-color: currentColor; /* matches text color */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease-out;
+}
+
+.site-header a:hover::after {
+  transform: scaleX(1);
+}
+
+.site-header .site-title::after {
+  bottom: 0px;
+  top: 45px;
+}
+
+/* ---------------------------------------
+   HOMEPAGE ONLY — TRANSPARENT START
+   body.home is added from front matter
+---------------------------------------- */
+body.home .site-header {
+  background-color: transparent;
+  color: var(--secondary-color);
+}
+
+// /* Homepage hover behaviour */
+// body.home .site-header a::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #ffffff;
+//   z-index: -1;
+//   transform: scaleX(0);
+//   transform-origin: center;
+//   transition: transform 0.1s ease;
+//   border-radius: 4px;
+// }
+
+// body.home .site-header a:hover {
+//   color: #202020 !important;
+//   background-color: #ffffffaa;
+//   border-radius: 2px;
+// }
+
+// body.home .site-header a:hover::before {
+//   transform: scaleX(1);
+// }
+
+/* ---------------------------------------
+   HOMEPAGE SCROLLED HEADER
+---------------------------------------- */
+body.home .site-header.scrolled {
+  background-color: #202020;
+  color: var(--secondary-color);
+}
+
+body.home .site-header.scrolled a {
+  color: var(--secondary-color) !important;
+}
+
+/* ---------------------------------------
+   CONTENT OFFSET FOR FIXED HEADER
+---------------------------------------- */
+.page-content {
+  padding-top: 70px;
+}
+
+.site-header .site-title {
+  color: inherit;
+}
+
+
+/* ---------------------------------------
+   HEADER LOGGO LOGIC
+---------------------------------------- */
+.header-logo {
+  position: absolute; /* attach to the header */
+  left: 20px;         /* adjust distance from left */
+  top: 0;
+  height: 70px;       /* match your header height */
+  display: flex;
+  align-items: flex-start; /* align to top of header */
+  z-index: 1010;      /* above header background */
+}
+
+/* Circle frame */
+.header-logo .logo-frame {
+  position: relative;
+  width: 50px;         /* diameter of circle */
+  height: 50px;
+  background-color: #202020; /* circle color */
+  border-radius: 50%;  /* make it a circle */
+  overflow: visible;
+  margin-top: 35px;    /* push it down so it spills under header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image inside the circle */
+.header-logo .logo-frame img {
+  width: 40px;         /* smaller than circle so it fits */
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;  /* optional: make image itself round */
+}
+
+/* ---------------------------------------
+   FOOTER
+---------------------------------------- */
+
+/* Footer background and text color */
+.site-footer {
+  background-color: #202020;  /* new background color */
+  color: var(--secondary-color);             /* text color */
+}
