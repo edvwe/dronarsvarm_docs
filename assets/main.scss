@@ -6,9 +6,11 @@
    GENERAL STYLES
 ---------------------------------------- */
 :root {
-  --primary-color: #202020;       /* your main dark color */
-  --secondary-color: #e7cf92;     /* e.g., for text */
-  --accent-color: #ff6600;        /* e.g., hover highlights */
+  --primary-color: #07223b;       /* your main dark color */
+  --secondary-color: #ff8101;     /* e.g., for text */
+  --alternative-color: #202020;        /* e.g., hover highlights */
+  --remember: #e7cf92;
+  --remember2: #0f1915;
 }
 
 body {
@@ -25,24 +27,44 @@ h1, h2, h3, h4, h5, h6 {
    → Solid header ALWAYS, unless homepage overrides it
 ---------------------------------------- */
 .site-header {
+  // height: 70px;
+  
+  padding: 13px 0px;
+  overflow: hidden;
+
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
 
-  background-color: #202020; /* Solid default */
+  background-color: var(--primary-color);
   color: var(--secondary-color);
   border-bottom: none !important;
+  border-top: none !important;
   box-shadow: none !important;
 
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;          /* centers logo + nav vertically */
+  justify-content: space-between;
+
+  // width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  // padding: 10px 10px;
+  box-sizing: border-box;
+}
+
 
 .site-header a {
   position: relative;
   color: var(--secondary-color) !important;
+  // color: #f0f0f0 !important;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.6s ease;
   border-bottom: none !important;
   box-shadow: none !important;
   display: inline-block;
@@ -80,38 +102,14 @@ body.home .site-header {
   color: var(--secondary-color);
 }
 
-// /* Homepage hover behaviour */
-// body.home .site-header a::before {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: #ffffff;
-//   z-index: -1;
-//   transform: scaleX(0);
-//   transform-origin: center;
-//   transition: transform 0.1s ease;
-//   border-radius: 4px;
-// }
-
-// body.home .site-header a:hover {
-//   color: #202020 !important;
-//   background-color: #ffffffaa;
-//   border-radius: 2px;
-// }
-
-// body.home .site-header a:hover::before {
-//   transform: scaleX(1);
-// }
-
 /* ---------------------------------------
    HOMEPAGE SCROLLED HEADER
 ---------------------------------------- */
 body.home .site-header.scrolled {
-  background-color: #202020;
+  background-color: var(--primary-color);
   color: var(--secondary-color);
+
+  // padding: 0px 0px;
 }
 
 body.home .site-header.scrolled a {
@@ -129,48 +127,60 @@ body.home .site-header.scrolled a {
   color: inherit;
 }
 
-
 /* ---------------------------------------
-   HEADER LOGGO LOGIC
+   HEADER and FOOTER
 ---------------------------------------- */
-.header-logo {
-  position: absolute; /* attach to the header */
-  left: 20px;         /* adjust distance from left */
-  top: 0;
-  height: 70px;       /* match your header height */
+.site-title {
   display: flex;
-  align-items: flex-start; /* align to top of header */
-  z-index: 1010;      /* above header background */
+  align-items: center;
+  position: absolute; // new
+  padding: 0;
+  margin: 0;
 }
-
-/* Circle frame */
-.header-logo .logo-frame {
-  position: relative;
-  width: 50px;         /* diameter of circle */
-  height: 50px;
-  background-color: #202020; /* circle color */
-  border-radius: 50%;  /* make it a circle */
-  overflow: visible;
-  margin-top: 35px;    /* push it down so it spills under header */
-  display: flex;
-  justify-content: center;
+.site-logo {
+  max-height: 40px;      /* adjust this */
+  width: auto;       /* keeps aspect ratio */
+}
+.site-title img {
+  // height: 40px;
+  width: auto;
+  display: block;
+}
+.site-nav {
+  margin-left: auto;
+}
+.site-nav .trigger {
+  display: flex !important;
+  gap: 20px !important;
   align-items: center;
 }
 
-/* Image inside the circle */
-.header-logo .logo-frame img {
-  width: 40px;         /* smaller than circle so it fits */
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;  /* optional: make image itself round */
+
+.site-footer {
+  background-color: var(--primary-color);  /* new background color */
+  color: var(--secondary-color);             /* text color */
 }
 
-/* ---------------------------------------
-   FOOTER
----------------------------------------- */
 
-/* Footer background and text color */
-.site-footer {
-  background-color: #202020;  /* new background color */
-  color: var(--secondary-color);             /* text color */
+/* ---------------------------------------
+   ACTIVE HEADER
+---------------------------------------- */
+.page-link.active {
+  color: var(--secondary-color); /* or your highlight color */
+  font-weight: bold;
+}
+/* Active link triggers underline */
+.page-link.active::after {
+  transform: scaleX(1);   /* show full underline */
+}
+
+#about {
+  scroll-margin-top: 100px; /* adjust to your header height */
+}
+
+#documents,
+#team {
+  margin-top: 70px;   /* adjust as needed */
+  margin-bottom: 20px; 
+  scroll-margin-top: 120px; /* adjust to your header height */
 }

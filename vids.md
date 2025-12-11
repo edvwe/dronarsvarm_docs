@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Video
+title: Videos
 permalink: /videos/
 ---
 

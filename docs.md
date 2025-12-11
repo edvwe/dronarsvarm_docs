@@ -1,18 +1,10 @@
 ---
 layout: page
-title: Dokument
-permalink: /dokument/
+title: Documents
+permalink: /documents/
 ---
 
-Ladda ner projektets dokument genom att trycka på länkarna nedan.
-
-<!-- - [Användarmanual (PDF)](/files/Användarmanual_drönarsvärm.pdf) -->
-<!-- - [Designspecifikation (PDF)](/files/Designspecifikation_drönarsvärm.pdf) -->
-<!-- - [Efterstudie (PDF)]() -->
-<!-- - [Kravspecifikation (PDF)](/files/Kravspecifikation_drönarsvärm.pdf) -->
-<!-- - [Projektplan (PDF)](/files/Projektplan_drönarsvärm.pdf) -->
-<!-- - [Testplan (PDF)](/files/Testplan_drönarsvärm.pdf) -->
-<!-- - [Teknisk rapport (PDF)]() -->
+Download the projects documents by clicking on the links. 
 
 <style>
 /* Grid container */
