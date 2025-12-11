@@ -12,7 +12,44 @@ body {
 }
 </style>
 
-<!-- Hero image spanning behind header -->
+<!-- Hero video spanning behind header -->
+<div class="hero-video">
+  <a href="{{ site.baseurl }}/videos/trailerVideo" target="_blank">
+    <video autoplay muted loop playsinline>
+      <source src="{{ site.baseurl }}/videos/heroVideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+</div>
+
+<style>
+/* Make hero video span full width and behind header */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;  /* same height as before */
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* cover */
+  object-position: center;
+  display: block;
+}
+</style>
+
+<style>
+body {
+  padding-top: 350px; /* same as hero height to avoid content overlap */
+}
+</style>
+
+<!-- Hero image spanning behind header
 <div class="hero-image">
   <img src="{{ site.baseurl }}/images/drone-2635699_1920.jpg" alt="Full width">
 </div>
@@ -36,7 +73,7 @@ body {
   object-position: top;
   display: block;
 }
-</style>
+</style> -->
 
 <style>
 body {
@@ -293,7 +330,7 @@ body {
     </div>
 
     <div class="grid-item">
-      <img src="{{ site.baseurl }}/images/heads/ruggis.jpg" alt="">
+      <img src="{{ site.baseurl }}/images/heads/Ruskis.PNG" alt="">
       <h3>Simulation Manager</h3>
       <p>Oskar Haapaniemi</p>
     </div>
