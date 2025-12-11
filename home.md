@@ -306,7 +306,7 @@ body {
   <div class="custom-grid">
 
     <div class="grid-item">
-      <img src="{{ site.baseurl }}/images/heads/ruggis.jpg" alt="">
+      <img src="{{ site.baseurl }}/images/heads/Adam.JPG" alt="">
       <h3>Project Lead</h3>
       <p>Adam Mejri</p>
     </div>
@@ -336,7 +336,7 @@ body {
     </div>
 
     <div class="grid-item">
-      <img src="{{ site.baseurl }}/images/heads/ruggis.jpg" alt="">
+      <img src="{{ site.baseurl }}/images/heads/oskar.jpeg" alt="">
       <h3>Testing Manager</h3>
       <p>Oskar Herling</p>
     </div>
